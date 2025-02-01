@@ -8,3 +8,8 @@
 | Dual FPGA setup | 22:00 |
 | Complete system integration + Testing | 03:00 |
 
+
+
+
+## Design Decisions/Processg:
+
