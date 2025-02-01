@@ -1,34 +1,30 @@
 import socket
 
-# Define the host and port
-host = '127.0.0.1'  # Localhost
-port = 12345         # Port number
+host = '172.30.175.182'  # Listen on all available network interfaces
+port = 12345
 
-# Create a TCP/IP socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Bind the socket to the address and port
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((host, port))
+server_socket.listen(1)
 
-# Enable the server to accept connections (with a backlog of 5)
-server_socket.listen(5)
+print(f"Server listening on {host}:{port}...")
 
-print(f"Server started at {host}:{port}. Waiting for connections...")
+client_socket, client_address = server_socket.accept()
+print(f"Connected to {client_address}")
 
-# Accept client connections in an infinite loop
 while True:
-    # Wait for a connection
-    client_socket, client_address = server_socket.accept()
-    print(f"Connection from {client_address} established.")
+    # Receive message from client
+    data = client_socket.recv(1024).decode()
+    if not data or data.lower() == "exit":  
+        break  # Exit when client sends "exit"
+    
+    print(f"Client: {data}")
 
-    # Send a welcome message to the client
-    client_socket.send(b"Hello, client! You are connected to the server.\n")
+    # Send a custom message back
+    message = input("Enter message to send to client: ")
+    client_socket.send(message.encode())
 
-    # Receive data from the client
-    data = client_socket.recv(1024)
-    if data:
-        print(f"Received from client: {data.decode()}")
-
-    # Close the connection
-    client_socket.close()
-    print(f"Connection from {client_address} closed.")
+print("Closing connection.")
+client_socket.close()
+server_socket.close()
