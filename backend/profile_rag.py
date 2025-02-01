@@ -40,6 +40,8 @@ class ProfileRag:
     def set_pc_index(self, index):
         self.index = index
 
+        return self
+
     def set_profile_name(self, name):
         vector_store = PineconeVectorStore(index = self.index,
                                            embedding=self.embedding_model,
@@ -49,6 +51,8 @@ class ProfileRag:
         self.chain = RetrievalQA.from_chain_type(llm = self.llm,
                                                  chain_type="stuff",
                                                  retriever=self.retriever)
+        
+        return self
     
     def query(self, query):
         relevant_docs = self.retriever.get_relevant_documents(query)

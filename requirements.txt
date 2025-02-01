@@ -6,3 +6,5 @@ pinecone[grpc]
 anthropic
 wikipedia
 youtube-transcript-api
+flask
+flask-cors

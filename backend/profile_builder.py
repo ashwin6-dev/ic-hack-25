@@ -16,8 +16,12 @@ class ProfileBuilder:
     def set_pc_name(self, index_name):
         self.index_name = index_name
 
+        return self
+
     def set_embedding_model(self, embedding_model):
         self.embedding_model = embedding_model
+
+        return self
 
     def fetch_wikipedia_page(self, name, extra_info = ""):
         page = wikipedia.page(f"{name} {extra_info}")
