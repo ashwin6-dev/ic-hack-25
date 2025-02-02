@@ -6,25 +6,45 @@ from langchain.prompts import PromptTemplate
 MODEL_NAME = "claude-3-5-haiku-latest"
 
 PROMPT_TEMPLATE = """
-Your job is to impersonate the person that is described in the provided documents. Your responses should fully embody the personality, expertise, beliefs, and communication style as described in these documents. 
+Your goal is to **fully embody** the personality, expertise, and way of thinking of the individual described in the provided documents, while maintaining respectful and accurate representation.  
 
-Do not say anyting that is not part of your replication of this persona.
+Every response must align with how this individual would naturally reply in this chat, based on their known beliefs, expertise, and speech patterns. Even if the context is incomplete or unclear, always make an effort to provide a response that is in line with the individual’s style, tone, and knowledge.
 
-Here are the key documents that describe the person:
+### **Guidelines for Your Responses**:  
+- **Stay in Character**: You must **fully adopt** the perspective, beliefs, and knowledge of the individual described in the documents, without inventing new ideas or misrepresenting them.  
+- **Respectful Tone**: Ensure responses are respectful, and avoid producing anything that could be interpreted as misrepresentation or disrespect.  
+- **No AI Disclosure**: Do not mention AI, documents, or that you are generating a response. Focus on representing the individual directly.  
+- **Mimic Speech Style**: Use the individual’s tone, vocabulary, and thought process as informed by the documents.  
+- **Be Consistent**: Ensure responses align with the person’s known beliefs, prior statements, and way of thinking.  
+- **Use Chat Context**: Keep continuity from prior messages to ensure natural conversation flow.  
 
-{documents}
+**Important Instruction**:  
+- Even if the context is incomplete, always try to attempt a response. It's important to stay in character and use the information available to make your reply sound as authentic as possible. If the full context is unclear, generate a response that would logically fit the individual’s style and likely views.
 
-When answering the question, please ensure:
-- **Accuracy**: Your response should reflect the facts, beliefs, and insights as described in the documents. Base your answer strictly on the information provided.
-- **Voice & Personality**: Your response should sound like the person described in the documents. Pay attention to their tone, choice of words, formality, and any recurring patterns in their speech or thought processes.
-- **Contextual Relevance**: When the question pertains to specific knowledge or experiences, provide answers that are in line with what is conveyed in the documents.
-- **Consistency**: Ensure your answer stays consistent with the persona and viewpoints found across the documents. Your responses should align with their known perspectives, without contradicting the documents provided.
+### **Important Note**:  
+- This is a **text-based chat**, so responses should be **natural dialogue only**. Do **not** describe actions, gestures, or expressions (e.g., *pauses*, *smirks*). Only respond with what the individual would say in a conversation.  
+- The documents serve as a **guideline** to inform personality, thinking style, and expertise. If a question is not directly covered in the documents, respond based on the individual’s likely perspective, reasoning, and general knowledge, always staying true to their beliefs and speech.  
 
-You are allowed to answer questions that are not mentioned in the documents. The documents are there to inform you on their thought process and on how they'd respond to other questions.
+---  
 
-Now, answer the following question:
+### **Reference Material**  
+(These documents contain the individual’s thoughts, beliefs, and expertise. Use them to ensure accuracy and authenticity in responses.)  
 
-{query}
+{documents}  
+
+---  
+
+### **Conversation History**  
+(Use this chat history to maintain continuity.)  
+
+{chat_history}  
+
+---  
+
+Now, respond as the individual:  
+
+**User:** {query}  
+**Response:**  
 """
 
 class ProfileRag:
@@ -32,42 +52,52 @@ class ProfileRag:
         self.retriever = None
         self.index = None
         self.embedding_model = None
+        self.profile_name = None
 
         self.llm = ChatAnthropic(model=MODEL_NAME)
         self.chain = None
 
-        self.prompt_template = PromptTemplate(input_variables=["documents", "query"],
-                                              template=PROMPT_TEMPLATE)
+        self.prompt_template = PromptTemplate(
+            input_variables=["profile_name", "documents", "chat_history", "query"],
+            template=PROMPT_TEMPLATE
+        )
 
     def set_pc_index(self, index):
         self.index = index
-
         return self
     
     def set_embedding_model(self, model):
         self.embedding_model = model
-        
         return self
 
     def set_profile_name(self, name):
-        vector_store = PineconeVectorStore(index = self.index,
+        self.profile_name = name
+        vector_store = PineconeVectorStore(index=self.index,
                                            embedding=self.embedding_model,
                                            namespace=name)
-        
         self.retriever = vector_store.as_retriever()
-        self.chain = RetrievalQA.from_chain_type(llm = self.llm,
-                                                 chain_type="stuff",
-                                                 retriever=self.retriever)
-        
+
         return self
     
-    def query(self, query):
-        relevant_docs = self.retriever.get_relevant_documents(query)
+    def query(self, query, chat_history):
+        # Retrieve relevant documents
+        relevant_docs = self.retriever.invoke(query,
+                                              k=10)
         
         docs_as_str = "\n".join([doc.page_content for doc in relevant_docs])
 
-        prompt = self.prompt_template.format(documents=docs_as_str,
-                                             query=query)
+        # Format chat history
+        chat_history_str = "\n".join(
+            [f"{message['sender']}: {message['text']}" for message in chat_history]
+        ) if chat_history else "No prior conversation."
+
+        # Generate response
+        prompt = self.prompt_template.format(
+            profile_name=self.profile_name,
+            documents=docs_as_str,
+            chat_history=chat_history_str,
+            query=query
+        )
 
         response = self.llm(prompt)
 

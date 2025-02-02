@@ -13,7 +13,7 @@ class ProfileBuilder:
         self.index_name = None
         self.embedding_model = None
 
-    def set_pc_name(self, index_name):
+    def set_index_name(self, index_name):
         self.index_name = index_name
 
         return self
@@ -26,8 +26,9 @@ class ProfileBuilder:
     def fetch_wikipedia_page(self, name, extra_info = ""):
         page = wikipedia.page(f"{name} {extra_info}")
         content = page.content
-        docs = text_splitter.split_text([content])
+        docs = text_splitter.create_documents([content])
 
+        print (docs)
         return docs
 
     def get_video_transcript(self, video_url):
@@ -40,13 +41,13 @@ class ProfileBuilder:
             for chunk in transcript:
                 transcript_string += chunk["text"] + " "
 
-            return text_splitter.split_text([transcript_string])
+            return text_splitter.create_documents([transcript_string])
 
         except Exception as e:
             return f"Error fetching transcript: {e}"
         
     def custom_profile_build(self, name, video_urls = []):
-        profile_docs = self.fetch_wikipedia_page(name)
+        profile_docs = [] # self.fetch_wikipedia_page(name)
 
         for url in video_urls:
             docs = self.get_video_transcript(url)
