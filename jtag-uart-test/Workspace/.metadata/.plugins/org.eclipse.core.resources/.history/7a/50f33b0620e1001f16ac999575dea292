@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include "system.h"
+#include "sys/alt_stdio.h"
+
+#define CHARLIM 256
+#define QUIT_LETTER '~'
+
+void process_message(char *input, char *response) {
+    // Example: Echo received message with modification
+    snprintf(response, CHARLIM, "FPGA received: %s\n", input);
+}
+
+int main() {
+    char input[CHARLIM] = {0};
+    char response[CHARLIM] = {0};
+    int idx = 0;
+    char c;
+
+    alt_putstr("FPGA Ready. Send a message:\n");
+
+    while (1) {
+        c = alt_getchar(); // Wait for a character from UART
+        if (c == QUIT_LETTER) {
+            alt_putstr("Quitting...\n");
+            break;
+        }
+        if (c == '\n') { // End of message
+            input[idx] = '\0'; // Null-terminate the string
+            process_message(input, response); // Process input
+            alt_putstr(response); // Send response to Python
+            idx = 0; // Reset buffer index
+        } else {
+            input[idx++] = c; // Store character
+            if (idx >= CHARLIM - 1) { // Prevent overflow
+                idx = 0;
+            }
+        }
+    }
+    return 0;
+}

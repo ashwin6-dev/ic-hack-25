@@ -24,43 +24,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "oDRAM_A[11]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[10]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[9]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[8]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[7]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[6]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[5]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[4]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[3]",
-					"strict" : false
-				},
-				{
-					"name" : "oDRAM_A[2]",
+					"name" : "oDRAM_A[0]",
 					"strict" : false
 				},
 				{
@@ -68,11 +32,43 @@
 					"strict" : false
 				},
 				{
-					"name" : "oDRAM_A[0]",
+					"name" : "oDRAM_A[2]",
 					"strict" : false
 				},
 				{
-					"name" : "oDRAM_BA[1]",
+					"name" : "oDRAM_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[8]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[9]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[10]",
+					"strict" : false
+				},
+				{
+					"name" : "oDRAM_A[11]",
 					"strict" : false
 				},
 				{
@@ -80,7 +76,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "oDRAM_DQM[1]",
+					"name" : "oDRAM_BA[1]",
 					"strict" : false
 				},
 				{
@@ -88,59 +84,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[15]",
+					"name" : "oDRAM_DQM[1]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[14]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[13]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[12]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[11]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[10]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[9]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[8]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[7]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[6]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[5]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[4]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[3]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[2]",
+					"name" : "DRAM_DQ[0]",
 					"strict" : false
 				},
 				{
@@ -148,7 +96,59 @@
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[0]",
+					"name" : "DRAM_DQ[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[8]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[9]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[10]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[11]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[12]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[13]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[14]",
+					"strict" : false
+				},
+				{
+					"name" : "DRAM_DQ[15]",
 					"strict" : false
 				},
 				{

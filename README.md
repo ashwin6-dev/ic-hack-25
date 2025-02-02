@@ -8,6 +8,11 @@
 | Dual FPGA setup | 22:00 |
 | Complete system integration + Testing | 03:00 |
 
+Quick start:
+```bash
+& 'C:\intelFPGA_lite\18.1\nios2eds\Nios II Command Shell.bat'
+```
+
 ### 1. Single FPGA client host set up:
 Following lab 4 to replicate that first, then changing the Nios 2 hardware as required. 
 >[!ERROR]
@@ -18,6 +23,14 @@ Following lab 4 to replicate that first, then changing the Nios 2 hardware as re
 ### 2. Edit python host file for communication flask 
 
 ### 3. gotta figure this out later ...
+
+## Working logs
+**0148** - I have configured the system so that I can send a command from a python script which sends it to the fpga and gets a response
+Arjun and Avik have a system working that communicates over TCP between 2 computers on the same network. I need to repeat the step above over tcp so that I can send a message from another computer and receive it on my computer, then process it and send the output back.
+
+**0210** - Client host system working now. Need to test this with the user sending a query, and this being received by the fpga and passing it to the flask server then claude - but a quick kareoke break!
+
+
 
 
 ## Design Decisions/Processg:

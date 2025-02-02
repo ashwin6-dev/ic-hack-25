@@ -1,5 +1,5 @@
 Assembler report for hello_world
-Wed Jan 29 17:32:52 2025
+Sun Feb 02 01:28:02 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -11,7 +11,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/Parth/Downloads/lab4_task1/jtag-uart-test/hello_world_time_limited.sof
+  6. Assembler Device Options: C:/Users/Parth/Downloads/ic-hack-25/jtag-uart-test/hello_world_time_limited.sof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Jan 29 17:32:52 2025 ;
+; Assembler Status      ; Successful - Sun Feb 02 01:28:02 2025 ;
 ; Revision Name         ; hello_world                           ;
 ; Top-level Entity Name ; hello_world                           ;
 ; Family                ; MAX 10                                ;
@@ -69,17 +69,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; File Name                                                                       ;
 +---------------------------------------------------------------------------------+
-; C:/Users/Parth/Downloads/lab4_task1/jtag-uart-test/hello_world_time_limited.sof ;
+; C:/Users/Parth/Downloads/ic-hack-25/jtag-uart-test/hello_world_time_limited.sof ;
 +---------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/Parth/Downloads/lab4_task1/jtag-uart-test/hello_world_time_limited.sof ;
+; Assembler Device Options: C:/Users/Parth/Downloads/ic-hack-25/jtag-uart-test/hello_world_time_limited.sof ;
 +----------------+------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                  ;
 +----------------+------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00535623                                                                               ;
-; Checksum       ; 0x00535623                                                                               ;
+; JTAG usercode  ; 0x00536ACB                                                                               ;
+; Checksum       ; 0x00536ACB                                                                               ;
 +----------------+------------------------------------------------------------------------------------------+
 
 
@@ -89,15 +89,15 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Jan 29 17:32:48 2025
+    Info: Processing started: Sun Feb 02 01:27:58 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off hello_world -c hello_world
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info (115017): Design contains a time-limited core -- only a single, time-limited programming file can be generated
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4699 megabytes
-    Info: Processing ended: Wed Jan 29 17:32:52 2025
+    Info: Peak virtual memory: 4700 megabytes
+    Info: Processing ended: Sun Feb 02 01:28:02 2025
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 

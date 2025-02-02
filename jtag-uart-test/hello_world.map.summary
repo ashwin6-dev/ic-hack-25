@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Jan 29 17:32:01 2025
+Analysis & Synthesis Status : Successful - Sun Feb 02 01:27:17 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : hello_world
 Top-level Entity Name : hello_world
 Family : MAX 10
-Total logic elements : 4,524
-    Total combinational functions : 3,625
+Total logic elements : 4,529
+    Total combinational functions : 3,630
     Dedicated logic registers : 2,656
 Total registers : 2656
 Total pins : 47

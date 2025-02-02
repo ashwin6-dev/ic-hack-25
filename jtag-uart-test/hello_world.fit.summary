@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed Jan 29 17:32:43 2025
+Fitter Status : Successful - Sun Feb 02 01:27:54 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : hello_world
 Top-level Entity Name : hello_world
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 4,174 / 49,760 ( 8 % )
-    Total combinational functions : 3,631 / 49,760 ( 7 % )
+Total logic elements : 4,154 / 49,760 ( 8 % )
+    Total combinational functions : 3,636 / 49,760 ( 7 % )
     Dedicated logic registers : 2,612 / 49,760 ( 5 % )
 Total registers : 2680
 Total pins : 47 / 360 ( 13 % )
