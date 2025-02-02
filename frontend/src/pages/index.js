@@ -106,14 +106,13 @@ export default function ChatPage() {
   return (
     <Box sx={{ height: "100vh", width: "100vw", display: "flex", bgcolor: "#000" }}>
       <Box sx={{ width: 320, bgcolor: "#111", borderRight: "1px solid #222", display: "flex", flexDirection: "column" }}>
-        <Typography variant="h6" sx={{ p: 2, fontWeight: 600, color: "white" }}>Mode Selection</Typography>
-        
-        <Box sx={{ px: 2, mb: 3 }}>
+        <Box sx={{ px: 2, my: 3 }}>
           <ToggleButtonGroup
             value={mode}
             exclusive
             onChange={handleModeChange}
             aria-label="chat mode"
+            size="small"
             sx={{ 
               width: "100%",
               "& .MuiToggleButton-root": {
