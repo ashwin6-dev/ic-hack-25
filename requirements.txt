@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-pinecone
+langchain-anthropic
+pinecone[grpc]
+anthropic
+wikipedia
+youtube-transcript-api
+flask
+flask-cors

@@ -14,8 +14,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 
 load_dotenv()
 
-# PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
-PINECONE_API_KEY = "pcsk_Xbf85_ChpsQ4mHZmuLwnCGUYCbtsyAWWodPFKdeEKTxQppq1mAzoXURXTGo1Xw7BucJ8o"
+PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
 INDEX_NAME = "echo-app"
 
 app = Flask(__name__)
